@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-''' Yield a random number with an asynchronous functions (coroutine)
+'''expressing coroutine using asyncio and random modules
 '''
-import random, typing, asyncio
+import asyncio
+import random
+import typing
 
 
 async def async_generator() -> typing.Generator[float, None, None]:
-    ''' The coroutine to yield a random number and sleep 1s
+    '''The coroutine loops and yields
     '''
-    for i in range(10):
+    i = 0
+    while(i < 10):
         yield random.uniform(0, 10)
         await asyncio.sleep(1)
+        i += 1
